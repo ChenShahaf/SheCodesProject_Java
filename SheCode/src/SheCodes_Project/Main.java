@@ -8,7 +8,10 @@ public class Main {
 
 
 	public static void main(String[] args) {
-		alumniID alumni1 = new alumniID();
+		Graduate alumni1 = new Graduate();
+		
+		
+		/*alumniID alumni1 = new alumniID();
 		String newPass;
 		alumniID.isValidID(alumni1.firstName);
 		alumniID.isValidID(alumni1.lastName);
@@ -29,8 +32,14 @@ public class Main {
 		LinkedIn linkIn = new LinkedIn();
 		LinkedIn.validLink(linkIn.linkedin);
 		int jobSearch = jobSearchStatus();
-		registerNewGrad(alumni1.firstName,alumni1.lastName, newPass, resume, jobSearch);
 		
+		//calling registergrad to create user name
+		String userName = registerNewGradUserName(alumni1.firstName,alumni1.lastName);
+		
+		
+		//creating update variable for update
+		int update = registerNewGradUpdae();
+		*/
 		 
 		
 		
@@ -72,10 +81,14 @@ static public int jobSearchStatus() {
 		
 	}
 
-	
-	public static registerNewGrad(String firstName, String lastName, String password, String[] resme, int jobstat) {
-		String user = firstName + "." + lastName + "." + "she-codes";
+	public static String registerNewGradUserName(String firstName, String lastName){
+		 String user = firstName + "." + lastName + ".she-codes";
+		 System.out.println("Your user name is:" + user);
+		 return user;
 		 
+	 }
+	public static int registerNewGradUpdae() {
+		String newPassword = null;
 		System.out.println("which of the following would you like to do:");
 		System.out.println("1. update password");
 		System.out.println("2. update resume");
@@ -84,20 +97,11 @@ static public int jobSearchStatus() {
 		System.out.println("5. i wish to update nothing");
 		Scanner scan = new Scanner(System.in);
 		int update = scan.nextInt();
-		if(update == 1) {
-			String newPassword = OTP.changePassword();
-		}if(update == 2) {
-			String[] updateResume = updateResume(resme);
-		}if(update == 3) {
-			jobstat = jobSearchStatus();			
-		}if(update == 4) {
-			String updateLinkdIn = LinkedIn.addLinkedin();
-		}if(update ==5) {
-			return ;
-		}
-
+		 return update;
 	}
 	
-
+	
+	
+	 
 
 }
